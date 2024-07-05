@@ -1,0 +1,345 @@
+@import mixins
+@import fonts
+
+%text-title
+	font-size: calc( 21px + (60 - 21) * (100vw - 288px) / (1920 - 288) )
+	line-height: calc( 24px + (68 - 24) * (100vw - 288px) / (1920 - 288) )
+	font-weight: 500
+
+%text-step-legend
+	font-size: calc( 12px + (20 - 12) * (100vw - 288px) / (1920 - 288) )
+	line-height: calc( 15.6px + (26 - 15.6) * (100vw - 288px) / (1920 - 288) )
+	font-weight: 700	
+
+%text-step-title
+	font-size: calc( 16px + (28 - 16) * (100vw - 288px) / (1920 - 288) )
+	line-height: calc( 16px + (31 - 16) * (100vw - 288px) / (1920 - 288) )
+	font-weight: 500	
+
+%text-step-text
+	font-size: calc( 14px + (18 - 14) * (100vw - 288px) / (1920 - 288) )
+	line-height: calc( 18px + (24 - 18) * (100vw - 288px) / (1920 - 288) )
+	font-weight: 400	
+
+%centered
+	display: flex
+	align-items: center
+	justify-content: center
+
+$main-font: 'DIN Pro', sans-serif
+$white: rgba(255, 255, 255, 1)
+$teal: rgba(65, 180, 180, 1)
+$darkblue: rgba(25, 25, 43, 1)
+$gray: rgba(55, 55, 55, 1)
+$lightblue: rgba(206, 231, 231, 1)
+
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+.page
+	padding: 35px 48px
+	font-family: $main-font
+
+	@media screen and (max-width: 1023px)
+		padding: 
+			right: calc( 0px + (15 - 0) * (100vw - 288px) / (1023 - 288) )
+			left: calc( 0px + (15 - 0) * (100vw - 288px) / (1023 - 288) )
+
+	.page__main
+		padding: 86px 83px 0px 83px
+		width: 1824px
+		height: 801px
+
+		border-radius: 22px
+		background: $lightblue url('../assets/images/Group 335445.png')
+		background-size: contain
+		background-repeat: no-repeat
+		background-position: center
+
+		display: flex
+		column-gap: 93px
+
+		@media screen and (max-width: 1920px)
+			column-gap: calc( 30px + (93 - 30) * (100vw - 1024px) / (1920 - 1024) )
+			padding: 
+				right: calc( 21px + (83 - 21) * (100vw - 1024px) / (1920 - 1024) )
+				left: calc( 21px + (83 - 21) * (100vw - 1024px) / (1920 - 1024) )
+
+		@media screen and (max-width: 1850px)
+			width: 100%
+
+		@media screen and (max-width: 1023px)
+			padding: 44px calc( 15px + (200 - 15) * (100vw - 288px) / (1023 - 288) )
+			background: $lightblue
+			height: max-content
+			flex-direction: column
+			row-gap: 37px
+			column-gap: unset
+		
+		
+
+		.main__title
+			max-width: 358px
+			color: $darkblue
+			@media screen and (max-width: 1920px)
+			@extend %text-title
+
+			.main__title__marker
+				color: $teal
+				@media screen and (max-width: 1023px)
+					color: unset
+				
+				
+
+		.main__arrows
+			position: absolute
+			width: 0
+			height: 0
+			@media screen and (max-width: 767px)
+				display: none !important
+			.arrow
+				position: absolute
+				z-index: 10
+				
+			.arrow-top
+				top: 100px
+				left: 938px
+				transform: scale(1)
+
+				@media screen and (max-width: 1920px)
+					left: calc( 895px + (938 - 895) * (100vw - 1820px) / (1920 - 1820) )
+
+				@media screen and (max-width: 1820px)
+					left: calc( 722px + (895 - 722) * (100vw - 1440px) / (1820 - 1440) )
+
+				@media screen and (max-width: 1440px)
+					left: calc( 482px + (722 - 497) * (100vw - 1024px) / (1440 - 1024) )
+
+				@media screen and (max-width: 1023px)
+					display: none
+
+			.arrow-left
+				top: 304px
+				left: 655px
+				@media screen and (max-width: 1850px)
+					top: 330px
+					left: 1145px
+					transform: rotate(90deg)
+					display: none
+				
+			.arrow-middle
+				top: 303px
+				left: 660px
+				@media screen and (max-width: 1850px)
+					display: none
+				
+			.arrow-right
+				top: 255px
+				left: 1171px
+				@media screen and (max-width: 1850px)
+					display: none
+
+				&:last-child
+					top: 278px
+					@media screen and (max-width: 1850px)
+						top: calc( 250px + (292 - 250) * (100vw - 1024px) / (1850 - 1024) )
+					
+					
+
+		.steps 
+			position: relative
+			height: max-content
+			// display: flex
+			// flex-wrap: wrap
+			display: grid
+			grid-template-columns: repeat(2, 580px)
+
+			@media screen and (max-width: 1920px)
+				grid-template-columns: repeat(2, calc( 295px + (580 - 295) * (100vw - 1024px) / (1920 - 1024) ))
+
+			@media screen and (max-width: 1023px)
+				grid-template-columns: repeat(1, 1fr)
+				justify-items: center
+				row-gap: 24px
+			
+			@media screen and (max-width: 767px)
+				width: 100%
+				flex-direction: column
+				row-gap: 37px
+			
+			.steps__item
+				position: relative
+
+				padding: 32px 59px 32px 40px
+
+				border-radius: 27.75px
+				border: none
+				background: $white
+
+				display: flex
+				justify-content: space-between
+
+				@media screen and (max-width: 1920px)
+					padding:
+						right: calc( 20px + (59 - 20) * (100vw - 1024px) / (1920 - 1024) )
+						left: calc( 20px + (40 - 20) * (100vw - 1024px) / (1920 - 1024) )
+
+				@media screen and (max-width: 1850px)
+					height: max-content !important
+
+				@media screen and (max-width: 1023px)
+					margin: 0 !important
+					width: 100% !important
+					padding: 32px 20px
+				@media screen and (max-width: 768px)
+					width: 111% !important
+
+				.item__icon
+					min-width: 90px
+					min-height: 90px
+
+				&:nth-child(1)
+					width: 477px
+					height: vw(219)
+					margin: 0 vw(97) vw(113) 0
+
+					@media screen and (max-width: 1920px)
+						width: calc( 200px + (477 - 200) * (100vw - 1024px) / (1920 - 1024) )
+						margin:
+							right: calc( 0px + (97 - 0) * (100vw - 1024px) / (1920 - 1024) )
+							bottom: calc( 0px + (113 - 0) * (100vw - 1024px) / (1920 - 1024) )
+					
+					
+
+				&:nth-child(2)
+					padding-right: 16px
+					width: vw(632.42)
+					height: vw(264.15)
+					margin-bottom: 87px
+
+					@media screen and (max-width: 1920px)
+						width: calc( 300px + (632 - 300) * (100vw - 1024px) / (1920 - 1024) )
+						margin-bottom: calc( 45px + (87 - 45) * (100vw - 1024px) / (1920 - 1024) )
+
+					@media screen and (max-width: 1023px)
+						margin: 0
+					
+					.item__icon
+						position: relative
+						top: 10px
+						width: vw(206)
+						height: vw(206)
+
+				&:nth-child(3)
+					top: -12px
+					width: 546px
+					height: vw(240)
+					margin-right: vw(100)
+
+					@media screen and (max-width: 1920px)
+						width: calc( 245px + (546 - 245) * (100vw - 1024px) / (1920 - 1024) )
+
+					@media screen and (max-width: 1850px)
+						margin-top: 50px
+						top: -190px
+						top: calc( -85px + (-190 + 85) * (100vw - 1024px) / (1850 - 1024) )
+						height: max-content
+
+					@media screen and (max-width: 1023px)
+						top: 0
+					
+					
+
+					.item__icon
+						position: relative
+						top: 38px
+						left: 28px
+						width: vw(127)
+						height: vw(127)
+
+						@media screen and (max-width: 1920px)
+							left: calc( 10px + (28 - 10) * (100vw - 1024px) / (1920 - 1024) )
+
+						@media screen and (max-width: 1850px)
+							top: 10px
+
+						@media screen and (max-width: 767px)
+							top: 0
+						
+						
+
+				&:nth-child(4)
+					padding-right: 0
+					width: 560px
+					height: 249px
+
+					@media screen and (max-width: 1920px)
+						width: calc( 300px + (560 - 300) * (100vw - 1024px) / (1920 - 1024) )
+
+					.item__icon
+						position: relative
+						top: -25px
+						width: 211.13px
+						height: 211.13px
+
+						@media screen and (max-width: 1920px)
+							width: calc( 130px + (211 - 130) * (100vw - 1024px) / (1920 - 1024) )
+							height: calc( 130px + (211 - 130) * (100vw - 1024px) / (1920 - 1024) )
+
+						@media screen and (max-width: 1023px)
+							width: 90px
+							height: 90px
+						
+						
+						
+						
+
+				.item__legend
+					width: 80.71px
+					height: 30.82px
+					border-radius: 50px
+					background: $teal
+					color: $white
+					@extend %centered
+
+					@media screen and (max-width: 1920px)
+					@extend %text-step-legend
+					
+					&.reset
+						background: unset !important
+						width: max-content !important
+						height: max-content !important
+						color: unset
+
+				.item__col
+					position: relative
+					top: -25px
+
+					display: flex
+					flex-direction: column
+					row-gap: 12px
+
+					.item__title
+						color: $gray
+						@media screen and (max-width: 1920px)
+						@extend %text-step-title
+
+					.item__description
+						max-width: 296px
+						color: $darkblue
+
+						@media screen and (max-width: 1920px)
+						@extend %text-step-text
+
+					.item__icon
+						width: 0
+						height: 0
+

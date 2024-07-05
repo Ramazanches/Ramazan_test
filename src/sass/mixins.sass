@@ -1,0 +1,14 @@
+@use "sass:math"
+
+@function vw($size, $screen: 1920) 
+	$vw: math.div($screen, 100)
+	$result: math.div($size, $vw)
+	@return $result + vw
+
+@mixin fontFace($font_name, $file_name, $weight, $style: normal) 
+	@font-face 
+		font-family: $font_name 
+		font-display: swap 
+		src: url("../assets/fonts/#{$file_name}.woff") format("woff"), url("../assets/fonts/#{$file_name}.woff2") format("woff2") 
+		font-weight: $weight 
+		font-style: $style
